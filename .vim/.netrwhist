@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/gongzhen/Sites/2048_bk'
+let g:netrw_dirhist_2='/Users/gongzhen/Sites/2048_bk/js'
+let g:netrw_dirhist_3='/Users/gongzhen/Projects/datastructure/couresa/washington/lab/course-materials/lab0'
+let g:netrw_dirhist_4='/Users/gongzhen/Projects/datastructure/interview/amazon/CompositeWord-master/SearchCompositeWord'
+let g:netrw_dirhist_5='/Users/gongzhen/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_6='/Users/gongzhen/.vim'
+let g:netrw_dirhist_7='/Users/gongzhen/.vim/bundle'
+let g:netrw_dirhist_8='/Users/gongzhen/Projects/dotfiles/.vim/bundle/Vundle.vim'

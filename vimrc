@@ -1,30 +1,33 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" bind the keymap
+nmap <C-a> <home> 
+nmap <C-e> <end>
+nmap <C-d> <Delet>
+imap jj <Esc>  
+imap ;; <Esc>
+nmap XX :q<CR>  " exit without save
+nmap XXX :q!<CR>  " exit without save
+nmap ZW :w<CR>  " save without exiting from vim.
+
+"
+" Vundle
+" https://github.com/gmarik/vundle
+"
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+" Plugin 'scrooloose/syntastic'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
+filetype plugin indent on     " equired
+" plugin management
+" Bundle "mattn/emmet-vim"
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+" Bundle 'Lokaltog/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -41,70 +44,24 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-if has('cscope')
-  set cscopetag cscopeverbose
-
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
-
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
-
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-endif
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
-"       Amir Salihefendic
-"       http://amix.dk - amix@amix.dk
-"
-" Version: 
-"       5.0 - 29/05/12 15:43:36
-"
-" Blog_post: 
-"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
-"
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-"
-" Raw_version: 
-"       http://amix.dk/vim/vimrc.txt
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+let g:user_emmet_install_global = 0
+let g:EasyMotion_leader_key = 'f'
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+autocmd FileType html,css EmmetInstall
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
+
+" Sets linue number
+set number
 
 " Enable filetype plugins
 filetype plugin on
@@ -152,9 +109,6 @@ endif
 "Always show current position
 set ruler
 
-"show line number"
-set number
-
 " Height of the command bar
 set cmdheight=2
 
@@ -169,7 +123,6 @@ set whichwrap+=<,>,h,l
 if has('mouse')
   set mouse=a
 endif
-set mouse=a
 
 " Ignore case when searching
 set ignorecase
@@ -469,7 +422,7 @@ endfunction
 function! HasPaste()
     if &paste
         return 'PASTE MODE  '
-    en
+    endif
     return ''
 endfunction
 
@@ -493,3 +446,15 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+autocmd FileType php setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType coffee,javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+autocmd FileType html,htmldjango,xhtml,haml,tpl setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType sass,scss,css setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+
+
+
+
