@@ -10,3 +10,5 @@ https://github.com/henrik/dotfiles
 
 github.com/farrrr/dotfilesttps://github.com/lvii/dotfiles
 
+// awesome vim configuration.
+https://github.com/square/maximum-awesome

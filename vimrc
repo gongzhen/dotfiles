@@ -1,28 +1,28 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" don't bother with vi compatibility
+set nocompatible
 
-" bind the keymap
-nmap <C-a> <home> 
-nmap <C-e> <end>
-nmap <C-d> <Delet>
-imap jj <Esc>  
-imap ;; <Esc>
-nmap XX :q<CR>  " exit without save
-nmap XXX :q!<CR>  " exit without save
-nmap ZW :w<CR>  " save without exiting from vim.
+" enable syntax highlighting
+syntax enable
 
 "
 " Vundle
 " https://github.com/gmarik/vundle
-"
+" configure Vundle
+filetype on " without this vim emits a zero exit status, later, because of :ft off
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 " Plugin 'scrooloose/syntastic'
 
-filetype plugin indent on     " equired
 " plugin management
 " Bundle "mattn/emmet-vim"
 " Bundle 'mattn/webapi-vim'
@@ -32,8 +32,9 @@ filetype plugin indent on     " equired
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -44,44 +45,31 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:user_emmet_install_global = 0
-let g:EasyMotion_leader_key = 'f'
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
-autocmd FileType html,css EmmetInstall
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sets how many lines of history VIM has to remember
-set history=700
-
-" Sets linue number
-set number
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
-
+set autoindent
+set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
+set backspace=2                                              " Fix broken backspace in some setups
+set backupcopy=yes                                           " see :help crontab
+set clipboard=unnamed                                        " yank and paste with the system clipboard
+set directory-=.                                             " don't store swapfiles in the current directory
+set encoding=utf-8
+set ignorecase                                               " case-insensitive search
+set incsearch                                                " search as you type
+" set list                                                     " show trailing whitespace
+set listchars=tab:▸\ ,trail:▫
+set number                                                   " show line numbers
+set ruler                                                    " show where you are
+set scrolloff=3                                              " show context above/below cursorline
+set shiftwidth=2                                             " normal mode indentation commands use 2 spaces
+set showcmd
+set smartcase                                                " case-sensitive search if any caps
+set softtabstop=2                                            " insert mode tab and backspace use 2 spaces
+set tabstop=8                                                " actual tabs occupy 8 characters
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu                                                 " show a navigable menu for tab completion
+set wildmode=longest,list,full
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -155,7 +143,6 @@ set tm=500
 
 " Add a bit extra margin to the left
 set foldcolumn=1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -233,8 +220,8 @@ map j gj
 map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+" map <space> /
+" map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -384,9 +371,6 @@ map <leader>x :e ~/buffer.md<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,7 +438,3 @@ autocmd FileType coffee,javascript setlocal tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
 autocmd FileType html,htmldjango,xhtml,haml,tpl setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=0
 autocmd FileType sass,scss,css setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
-
-
-
-
