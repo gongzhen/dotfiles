@@ -24,10 +24,11 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'scrooloose/syntastic'
 
 " plugin management
-" Bundle "mattn/emmet-vim"
+" Bundle 'mattn/emmet-vim'
 " Bundle 'mattn/webapi-vim'
 " Bundle 'mattn/gist-vim'
 " Bundle 'Lokaltog/vim-easymotion'
+Bundle 'keith/swift.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -109,7 +110,7 @@ set whichwrap+=<,>,h,l
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
-  set mouse=a
+    set mouse=a
 endif
 
 " Ignore case when searching

@@ -1,8 +1,10 @@
 # ~/.bash_profile
 
 # add various directories to PATH
+export PATH=$PATH:/opt/local/bin
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 export PATH
+export PATH=${PATH}:/usr/local/mysql/bin
 # http://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
 source ~/.git-prompt.sh
 # umask

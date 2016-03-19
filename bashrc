@@ -1,5 +1,7 @@
 # .bashrc
 
+alias cdui='cd /Users/gongzhen/Projects/swift/udacity/iosnanodegree/uikit'
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -23,3 +25,9 @@ export PATH=$PATH:/Users/gongzhen/Projects/pintos_mac/bin
 
 AWS_EB_HOME = /Users/gongzhen/Public/AWS-ElasticBeanstalk-CLI-2.6.4/eb/macosx/python2.7
 PATH=$PATH:${AWS_EB_HOME}
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
+

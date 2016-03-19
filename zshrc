@@ -78,3 +78,8 @@ export PATH="/Users/gongzhen/.rvm/gems/ruby-2.1.2/bin:/Users/gongzhen/.rvm/gems/
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cdna='cd /Users/gongzhen/Projects/swift/udacity/iosnanodegree/OntheMap'
+alias rmf='rm -rf'
+alias cpf='cp -rf'
+alias cdui='cd /Users/gongzhen/Projects/swift/iosdevlibrary/uikit'
+alias cdly='cd /Users/gongzhen/Projects/swift/lynda'
