@@ -1,7 +1,5 @@
 # .bashrc
 
-alias cdui='cd /Users/gongzhen/Projects/swift/udacity/iosnanodegree/uikit'
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
