@@ -16,6 +16,11 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles.local
 endif
 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'jaxbot/semantic-highlight.vim'
+
 call vundle#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
