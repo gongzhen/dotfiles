@@ -12,3 +12,8 @@ github.com/farrrr/dotfilesttps://github.com/lvii/dotfiles
 
 // awesome vim configuration.
 https://github.com/square/maximum-awesome
+
+// dotfiles for node.js and npm install.
+https://github.com/webpro/dotfiles
+
+
