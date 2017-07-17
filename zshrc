@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/gongzhen/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -90,6 +90,7 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 
 alias rmf='rm -rf'
 alias cpf='cp -rf'
+
 alias rn='/Users/gongzhen/Project/mobile/RN'
 alias an='/Users/gongzhen/Project/mobile/android'
 alias ios='/Users/gongzhen/Project/mobile/iOS'
