@@ -4,7 +4,31 @@
 export PATH=$PATH:/opt/local/bin
 PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 export PATH
-export PATH=${PATH}:/usr/local/mysql/bin
+# export PATH=${PATH}:/usr/local/mysql/bin
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# BLOCKS
+export BLOCKS_REDIS_HOST=localhost:6379
+export BLOCKS_DB_READ_URL=jdbc:mysql://localhost:3306/grindr_blocks
+export BLOCKS_DB_READ_MAX_CONNECTIONS=1
+export BLOCKS_DB_READ_USER=<user>
+export BLOCKS_DB_READ_PASSWORD=<password>
+export BLOCKS_DB_WRITE_URL=jdbc:mysql://localhost:3306/grindr_blocks
+export BLOCKS_DB_WRITE_MAX_CONNECTIONS=1
+export BLOCKS_DB_WRITE_USER=<user>
+export BLOCKS_DB_WRITE_PASSWORD=<password>
+
+# FAVORITES
+export FAVES_REDIS_HOST=localhost:6379
+export FAVES_DB_READ_URL=jdbc:mysql://localhost:3306/grindr_favorites
+export FAVES_DB_READ_MAX_CONNECTIONS=1
+export FAVES_DB_READ_USER=<user>
+export FAVES_DB_READ_PASSWORD=<password>
+export FAVES_DB_WRITE_URL=jdbc:mysql://localhost:3306/grindr_favorites
+export FAVES_DB_WRITE_MAX_CONNECTIONS=1
+export FAVES_DB_WRITE_USER=<user>
+export FAVES_DB_WRITE_PASSWORD=<password>
+
 # http://stackoverflow.com/questions/12870928/mac-bash-git-ps1-command-not-found
 source ~/.git-prompt.sh
 # umask
@@ -118,11 +142,6 @@ function scoreboard () {
   git log | grep Author | sort | uniq -ci | sort -hr
 }
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin
-
-
 # PS1 (shell prompt)
 
 # set variable identifying the chroot you work in (used in the prompt below)
@@ -141,3 +160,9 @@ function parse_git_branch {
 }
 
 PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\$(parse_git_branch)\[\033[00m\]\$ "
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/zhengong/.sdkman"
+[[ -s "/Users/zhengong/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/zhengong/.sdkman/bin/sdkman-init.sh"
+eval "$(rbenv init -)"
+

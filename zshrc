@@ -4,6 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-11.0.1.jdk/Contents/Home"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -98,3 +99,23 @@ alias caknow='~/Project/caknow'
 alias web='~/Project/web'
 alias udacity='~/Project/mobile/iOS/github/Udacity/ios-nd-networking'
 alias leet='~/Project/interview/leetcode'
+alias lint='~/Project/interview/lintcode'
+alias gopro='~/Project/interview/go/projects'
+alias clx='rm -rfv $HOME/Library/Developer/Xcode/DerivedData/*; rm -rfv $HOME/Library/Caches/com.apple.dt.Xcode/*'
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/zhengong/.sdkman"
+
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+export GOPATH=$HOME/Project/interview/golib
+export PATH=$PATH:$GOPATH/bin
+
+export GOPATH=$GOPATH:$HOME/Project/interview/go
+
+[[ -s "/Users/zhengong/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/zhengong/.sdkman/bin/sdkman-init.sh"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

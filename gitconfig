@@ -1,16 +1,15 @@
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
 [user]
-	name = gongzhen
-	email = gongzhengz@gmail.com
+  name = gongzhen
+  email = gongzhengz@gmail.com
 [core]
-	excludesfile = /Users/gongzhen/.gitignore_global
-	editor = /usr/bin/vim
+  excludesfile = /Users/gongzhen/.gitignore_global
+  editor = /usr/bin/vim
+[alias]
+  ci = commit
+  co = checkout
+  st = status
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
